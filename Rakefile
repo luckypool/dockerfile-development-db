@@ -1,6 +1,6 @@
 IMG = "test_image"
 
-namespace :image do
+namespace :container do
   desc "build #{IMG}"
   task :build do
     sh "docker build --rm -t #{IMG} ."
