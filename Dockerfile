@@ -45,16 +45,19 @@ CMD /usr/sbin/service nginx start
 
 # for mysqld
 EXPOSE 3306
+ADD ./mysqld/additional.cnf /etc/mysql/conf.d/additional.cnf
 RUN mkdir -p /var/run/mysqld
 CMD /usr/sbin/service mysql start
 
 # for memcached
 EXPOSE 11211
+ADD ./memcached/memcached.conf /etc/memcached.conf
 RUN mkdir -p /var/run/memcached
 CMD /usr/sbin/service memcached start
 
 # for redis
 EXPOSE 6379
+# ADD ./redis/redis.conf /etc/redis/redis.conf
 RUN mkdir -p /var/run/redis
 CMD /usr/sbin/service redis-server start
 
